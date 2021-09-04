@@ -7,7 +7,7 @@ const Item = ({ item, index, moveItem, board }) => {
 
   const [, drop] = useDrop({
     accept: "ITEM",
-    hover(item, monitor) {
+    drop: (item, monitor) => {
       if (!ref.current) {
         return;
       }
@@ -37,7 +37,7 @@ const Item = ({ item, index, moveItem, board }) => {
 
   const [{ isDragging }, drag] = useDrag({
     type: "ITEM",
-    item: { type: "ITEM", ...item, index },
+    item: () => ({ ...item, index }),
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -46,7 +46,6 @@ const Item = ({ item, index, moveItem, board }) => {
   const [show, setShow] = useState(false);
 
   const onOpen = () => {
-    debugger;
     setShow(true);
   };
 
