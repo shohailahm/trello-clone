@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
+import ModalComponent from "./Modal";
 
 const Item = ({ item, index, moveItem, board }) => {
   const ref = useRef(null);
@@ -42,11 +43,14 @@ const Item = ({ item, index, moveItem, board }) => {
     }),
   });
 
-  const [show, setShow] = useState(false); //TODO: to add modal later
+  const [show, setShow] = useState(false);
 
-  const onOpen = () => setShow(true); //TODO: modal method
+  const onOpen = () => {
+    debugger;
+    setShow(true);
+  };
 
-  const onClose = () => setShow(false); //TODO: modal method
+  const onClose = () => setShow(false);
 
   drag(drop(ref));
 
@@ -60,10 +64,11 @@ const Item = ({ item, index, moveItem, board }) => {
       >
         <div
           className={"color-bar"}
-          style={{ backgroundColor: board.color || "white" }}
+          style={{ backgroundColor: board?.color || "white" }}
         />
         <p className={"item-title"}>{item.content}</p>
       </div>
+      <ModalComponent item={item} onClose={onClose} show={show} />
     </>
   );
 };

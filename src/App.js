@@ -6,7 +6,7 @@ import Homepage from "./containers/homepage";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" id="App">
       <DndProvider backend={HTML5Backend}>
         <Header />
         <Homepage />
