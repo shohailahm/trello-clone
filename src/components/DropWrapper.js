@@ -2,16 +2,16 @@ import React from "react";
 import { useDrop } from "react-dnd";
 import { boards } from "../utils/mockData";
 
-const DropWrapper = ({ onDrop, children, status }) => {
+const DropWrapper = ({ onDrop, children, board }) => {
   const [{ isOver }, drop] = useDrop({
     accept: "ITEM",
     canDrop: (item, monitor) => {
-      const itemIndex = boards.findIndex((si) => si.name === item.status);
-      const statusIndex = boards.findIndex((si) => si.name === status);
-      return [itemIndex + 1, itemIndex - 1, itemIndex].includes(statusIndex);
+      const itemIndex = boards.findIndex((si) => si.name === item.board);
+      const boardIndex = boards.findIndex((si) => si.name === board);
+      return [itemIndex + 1, itemIndex - 1, itemIndex].includes(boardIndex);
     },
     drop: (item, monitor) => {
-      onDrop(item, monitor, status);
+      onDrop(item, monitor, board);
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),

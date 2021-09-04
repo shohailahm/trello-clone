@@ -21,19 +21,19 @@ const data = [
 
 const boards = [
   {
-    id: 1,
+    id: 123,
     name: "open",
   },
   {
-    id: 2,
+    id: 333,
     name: "in progress",
   },
   {
-    id: 3,
+    id: 444,
     name: "in review",
   },
   {
-    id: 4,
+    id: 4555,
     name: "done",
   },
 ];

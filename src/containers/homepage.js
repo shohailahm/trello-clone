@@ -6,13 +6,13 @@ import { data, boards } from "../utils/mockData";
 const Homepage = () => {
   const [items, setItems] = useState(data);
 
-  const onDrop = (item, monitor, status) => {
-    const mapping = boards.find((si) => si.status === status);
+  const onDrop = (item, monitor, board) => {
+    const mapping = boards.find((si) => si.name === board.name);
 
     setItems((prevState) => {
       const newItems = prevState
         .filter((i) => i.id !== item.id)
-        .concat({ ...item, status, icon: mapping.icon });
+        .concat({ ...item, board });
       return [...newItems];
     });
   };
@@ -32,19 +32,21 @@ const Homepage = () => {
         return (
           <div key={board.id} className={"col-wrapper"}>
             <h2 className={"col-header"}>{board.name.toUpperCase()}</h2>
-            <DropWrapper onDrop={onDrop} status={board.name}>
+            <DropWrapper onDrop={onDrop} board={board.name}>
               <div>
                 {items
                   .filter((i) => i.board === board.name)
-                  .map((i, idx) => (
-                    <Item
-                      key={i.id}
-                      item={i}
-                      index={idx}
-                      moveItem={moveItem}
-                      baord={board}
-                    />
-                  ))}
+                  .map((i, idx) => {
+                    return (
+                      <Item
+                        key={i.id}
+                        item={i}
+                        index={idx}
+                        moveItem={moveItem}
+                        board={board}
+                      />
+                    );
+                  })}
               </div>
             </DropWrapper>
           </div>
