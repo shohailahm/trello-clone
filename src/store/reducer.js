@@ -33,7 +33,6 @@ export default (state = defaultstate, action) => {
         data: state.data.filter((ite) => ite.id !== action.data),
       };
     case SET_ITEMS_SUCCESS:
-      debugger;
       return {
         ...state,
         data: action.data,

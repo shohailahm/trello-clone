@@ -21,7 +21,6 @@ const Homepage = () => {
   });
 
   const onDrop = (item, monitor, board) => {
-    debugger;
     const newData = () => {
       const newItems = data
         .filter((i) => i.id !== item.id)
@@ -32,7 +31,6 @@ const Homepage = () => {
   };
 
   const moveItem = (dragIndex, hoverIndex) => {
-    debugger;
     const item = data[dragIndex];
     let newData = () => {
       const newItems = data.filter((i, idx) => idx !== dragIndex);
