@@ -1,9 +1,5 @@
 .App {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .App-header {
@@ -28,4 +24,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.page-header {
+  background-color: #054f7c;
+  padding: 20px;
+  color: white;
+  font-size: 30px;
+  flex: 1 100%;
+  margin-top: 0;
+  text-align: center;
 }
