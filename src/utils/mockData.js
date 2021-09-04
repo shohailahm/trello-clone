@@ -19,23 +19,23 @@ const data = [
   },
 ];
 
-const boards = [
-  {
-    id: 123,
-    name: "open",
-  },
-  {
-    id: 333,
-    name: "in progress",
-  },
-  {
-    id: 444,
-    name: "in review",
-  },
-  {
-    id: 4555,
-    name: "done",
-  },
-];
+// const boards = [
+//   {
+//     id: 123,
+//     name: "open",
+//   },
+//   {
+//     id: 333,
+//     name: "in progress",
+//   },
+//   {
+//     id: 444,
+//     name: "in review",
+//   },
+//   {
+//     id: 4555,
+//     name: "done",
+//   },
+// ];
 
-export { data, boards };
+export { data };

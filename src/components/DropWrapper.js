@@ -1,8 +1,7 @@
 import React from "react";
 import { useDrop } from "react-dnd";
-import { boards } from "../utils/mockData";
 
-const DropWrapper = ({ onDrop, children, board }) => {
+const DropWrapper = ({ onDrop, children, board, boards }) => {
   const [{ isOver }, drop] = useDrop({
     accept: "ITEM",
     canDrop: (item, monitor) => {

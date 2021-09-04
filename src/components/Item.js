@@ -2,7 +2,7 @@ import React, { Fragment, useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import ModalComponent from "./Modal";
 
-const Item = ({ item, index, moveItem, board }) => {
+const Item = ({ item, index, moveItem, board, deleteItem }) => {
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -65,7 +65,8 @@ const Item = ({ item, index, moveItem, board }) => {
           className={"color-bar"}
           style={{ backgroundColor: board?.color || "white" }}
         />
-        <p className={"item-title"}>{item.content}</p>
+        <p className={"item-title"}>{item.title}</p>
+        <button onClick={() => deleteItem(item.id)}>Delete</button>
       </div>
       <ModalComponent item={item} onClose={onClose} show={show} />
     </>
